@@ -1,19 +1,8 @@
 
 
 function interesCompuesto(dinero, interes, tiempo) {
-    let total = dinero = + rendimientoAnual
-    const rendimientoAnual = dinero * (interes * 0.);
-    const totalDinero = rendimientoAnual + dinero;
-    for (let i = 0; i > tiempo; i++) {
-
-    }
-
-
-
-
-    return rendimientoTotal;
-
-
+    let interesR = interes / 100;
+    return dinero * Math.pow((1 + interesR), tiempo)
 }
 
 function onClickButtonResult() {

@@ -7,9 +7,6 @@ import { Card, Image } from 'semantic-ui-react'
 const Home = () => {
     const [productList, setProductList] = useState([]);
 
-
-
-
     useEffect(() => {
         window.fetch('/api/avo').then(response => response.json()).then(({ data, length }) => { setProductList(data) })
     }, [])
@@ -28,10 +25,6 @@ const Home = () => {
 
                 </Card>
             ))}
-
-
-
-
         </div>
     )
 }

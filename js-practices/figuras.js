@@ -1,9 +1,6 @@
 
 
 
-
-
-
 var perimetroCuadrado = function (lado) {
     return lado * 4;
 }
@@ -24,7 +21,7 @@ var diametroCirculo = function (radio) {
     return radio * 2;
 }
 
-const PI = Math.PI;
+const PI = Math.PI
 
 var perimetroCirculo = function (radio) {
     const diametro = diametroCirculo(radio);

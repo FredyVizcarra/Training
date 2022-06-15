@@ -21,7 +21,7 @@ var onClickButtonPriceDiscount = function () {
     switch (couponValue) {
         case coupons[0]:
             descuento = 10;
-            console.log(couponValue);
+
             break;
         case coupons[1]:
             descuento = 20;

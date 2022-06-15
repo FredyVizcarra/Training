@@ -4,6 +4,9 @@ import '../style.css';
 import 'semantic-ui-css/semantic.min.css';
 
 function MyApp({ Component, pageProps }) {
+    // Providers - Context / Providers, Theme, data
+    // Layout
+    // props
     return (
         <Layout>
             <Component {...pageProps} />

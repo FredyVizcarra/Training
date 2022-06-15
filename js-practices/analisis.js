@@ -58,10 +58,7 @@ const spliceCount = salariosColSorted.length - spliceStart;
 const salariosColTop10 = salariosColSorted.splice(spliceStart, spliceCount);
 const medianaTop10Col = medianaSalarios(salariosColTop10);
 const medianaGeneralCol = medianaSalarios(salariosColSorted);
-console.log({
-    medianaGeneralCol,
-    medianaTop10Col,
-});
+
 
 
 
