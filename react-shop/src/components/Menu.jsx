@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Login.scss';
+import '../styles/Menu.scss';
 
-const Options = () => {
+const Menu = () => {
     return (
         <div className="desktop-menu">
             <ul>
@@ -21,4 +21,4 @@ const Options = () => {
     );
 }
 
-export default Options;
+export default Menu;
