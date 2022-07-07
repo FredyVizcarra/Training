@@ -8,24 +8,21 @@
 </head>
 <body>
   <h1>Michis App</h1>
-
+    <span id="error"></span>
   <section id="random">
     <h2>Gatitos aleatorio</h2>
     <article>
         <img id="img1" width="150" alt="Foto gatito aleatorio">
-        <button>Guardar michi en favoritos</button>
+        <button id="btn1" onclick="saveFavorite()">Guardar gato en favoritos</button>
       </article>
   
       <article>
         <img id="img2" width="150" alt="Foto gatito aleatorio">
-        <button>Guardar michi en favoritos</button>
+        <button id="btn2" onclick="saveFavorite()">Guardar gato en favoritos</button>
       </article>
   
-      <article>
-        <img id="img3" width="150" alt="Foto gatito aleatorio">
-        <button>Guardar michi en favoritos</button>
-      </article>
-      <button onclick="reload()">Recargar</button>
+      
+      <button onclick="loadRandomGats()">Recargar</button>
   </section>
   <section id="favorites">
     <h2>Favoritos</h2>
