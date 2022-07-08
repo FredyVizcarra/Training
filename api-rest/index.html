@@ -32,9 +32,16 @@
       <button>Quitar de favoritos</button>
     </article>
   </section>
+  <section id="uploadingGato">
+      <h2>Sube la foto de tu gato</h2>
+      <form id="uploadingForm" action="">
+          <input type="file" name="file" id="file" onchange="miniatura()">
+          <button type="button" onclick="uploadPhoto()">Subir foto</button>
+      </form>
+  </section>
 
   
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./main.js"></script>
 </body>
 </html>

@@ -1,7 +1,12 @@
+const api = axios.create({
+    baseURL: 'https://api.thecatapi.com/v1'
+  });
+  api.defaults.headers.common['X-API-KEY'] = 'ca39cbab-563f-4516-833b-d8d544b9b051';
+
 const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2&api_key=ca39cbab-563f-4516-833b-d8d544b9b051';
 const API_URL_FAVORITES ='https://api.thecatapi.com/v1/favourites';
 const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=ca39cbab-563f-4516-833b-d8d544b9b051`;
-
+const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload'
     const spanError = document.getElementById('error')
 
   const  loadRandomGats = async () => {
@@ -71,23 +76,26 @@ const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourite
   };
 
   const saveFavorite = async (id) => {
-     const res = await fetch (API_URL_FAVORITES,{
-         method: 'POST',
-         headers: {
-             'Content-Type': 'application/json',
-             'x-api-key': 'ca39cbab-563f-4516-833b-d8d544b9b051',
-         },
-         body: JSON.stringify({
-             image_id: id
-         }),
-     } );
-     const data = await res.json();
+      const {data, status} = await api.post('/favourites', {
+          image_id: id,
+      })
+    //  const res = await fetch (API_URL_FAVORITES,{
+    //      method: 'POST',
+    //      headers: {
+    //          'Content-Type': 'application/json',
+    //          'x-api-key': 'ca39cbab-563f-4516-833b-d8d544b9b051',
+    //      },
+    //      body: JSON.stringify({
+    //          image_id: id
+    //      }),
+    //  } );
+    //  const data = await res.json();
 
      console.log("SAVE");
-     console.log(res);
+     
 
-     if (res.status !== 200) {
-        spanError.innerHTML = "Hubo un error: " + res.status + data.message;
+     if (status !== 200) {
+        spanError.innerHTML = "Hubo un error: " + status + data.message;
       } else {
           loadFavorites();
       }
@@ -111,6 +119,53 @@ const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourite
           loadFavorites();
       }
   }
+
+  const uploadPhoto = async ()=>{
+      const form = document.getElementById("uploadingForm");
+      const formData = new FormData(form);
+
+      console.log(formData.get('file'));
+
+      const res = await fetch(API_URL_UPLOAD,{
+        method: 'POST',
+        headers: {
+            // 'ContentType': 'multipart/form-data',
+            'x-api-key':'ca39cbab-563f-4516-833b-d8d544b9b051',
+        },
+        body: formData,
+      })
+      const data = await res.json();
+
+    if (res.status !== 201) {
+        spanError.innerHTML = "Hubo un error: " + res.status + data.message;
+      } else {
+          console.log('Foto subida');
+          saveFavorite(data.id);
+      }
+  }
+
+  const miniatura = () => {
+    const form = document.getElementById("uploadingForm");
+    const formData = new FormData(form);
+    const reader = new FileReader();
+
+    console.log(form);
+
+    if (form.children.length === 3) {
+        const preview = document.getElementById("preview")
+        form.removeChild(preview)
+    }
+    reader.readAsDataURL(formData.get('file'));
+
+    reader.onload = () => {
+        const previewImage = document.createElement('img')
+        previewImage.id = "preview"
+        previewImage.width = 50
+        previewImage.src = reader.result
+        form.appendChild(previewImage);
+    }
+  }
   
   loadRandomGats();
   loadFavorites();
+  console.log(fetch());
