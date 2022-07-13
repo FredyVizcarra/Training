@@ -1,0 +1,19 @@
+{
+  "name": "streaming-cata",
+  "version": "1.0.0",
+  "description": "Curso API rest practico",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredyvizcarra/streaming-cata.git"
+  },
+  "author": "fredy <fredyvizcarrag@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fredyvizcarra/streaming-cata/issues"
+  },
+  "homepage": "https://github.com/fredyvizcarra/streaming-cata#readme"
+}
