@@ -13,3 +13,5 @@ addProduct({
   size: 'M'
 });
 console.log(products);
+const total = calcStock();
+
